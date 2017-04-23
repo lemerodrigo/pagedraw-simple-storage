@@ -50,6 +50,7 @@ class Core():
             self.get_active_data_structure()[key] = value
 
     def get(self, key):
+        """Retrieve the value that matches with the passed key"""
         # Going through all storages to check if we have the searched key
         for last_transaction_storage in reversed(self.storage_transactions_chain):
             if last_transaction_storage.has_key(key):
@@ -82,8 +83,7 @@ class Core():
                 merged.update(dic)
             self.reset_transaction_chain()
             # The final merge with the current storage
-            merged.update(self.storage)
-            self.storage = merged
+            self.storage.update(merged)
         else:
             print 'Sorry, you are not inside a transaction so there is nothing to commit'
     

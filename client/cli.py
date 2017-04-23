@@ -13,13 +13,20 @@ Last revision:
     Sunday, April 23rd, 2017
 """
 
+# BuiltIn Modules
+import sys
+import os
 from cmd import Cmd
-from helperFunctions import is_number
+
+# My modules
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../')
+from helpers import functions
 
 class CursorHandler(Cmd):
 
+    # As I still don't have a storage listening in some TCP port,
+    # I have to bind the storage to the client.
     obj_storage = None
-
     def set_storage(self, obj_storage):
         self.obj_storage = obj_storage
 
@@ -81,7 +88,7 @@ class CursorHandler(Cmd):
             > 8.0
         """
         values = self.obj_storage.get_data().values()
-        values = [float(i) for i in values if is_number(i)]
+        values = [float(i) for i in values if functions.is_number(i)]
         if values:
             print reduce((lambda x, y: x + y), values)
         else:

@@ -2,13 +2,18 @@
 
 PageDraw Simple Storage (S2)
 
+# TL;DR
+
+python init.py
+> help
+
 ## Structure
 
-The simple storage was designed with a evolution mindset to work in the future as a real in memory storage engine.
+The simple storage was designed with a mindset to transform it into a real in memory storage engine.
 
 In order for this evolution turns into reality, the first change must be an implementation of a socket library that is going to allow the building of a daemon of the storage engine to be running and listening for commands.
 
-The client folder/module, for now, just have the cli client, but the idea was to have all clients types that are going to be used to connect to the database. E.g. PHP, Ruby, JavaScript, etc.
+The client folder, for now, just have the CLI client, but the idea was to have all clients types that are going to be used to connect to the database engine. E.g. PHP, Ruby, JavaScript, etc.
 
 ## Assumptions
 
@@ -16,7 +21,7 @@ The client folder/module, for now, just have the cli client, but the idea was to
 
 2. The sum method does not consider the values inside transactions.
 
-3. 
+3. The get command also search inside transactions chains.
 
 ## Getting Started
 
@@ -26,13 +31,11 @@ The client folder/module, for now, just have the cli client, but the idea was to
 
 3. python init.py
 
+4. Type help in the command line
+
 ### Prerequisites
 
 Python 2.7
-
-## Running the tests
-
-python tests.py
 
 ## Authors
 
@@ -40,4 +43,4 @@ python tests.py
 
 ## License
 
-This project is licensed under the MIT License
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
